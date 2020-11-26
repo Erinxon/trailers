@@ -8,22 +8,15 @@
             background-color: #F3F4F5 !important;
         }
 
-
         .navbar{
             background-color: #5000ca !important;
             color: #fff !important;
-        }
-
-        .content-form{
-            border-radius: 4px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
         }
 
         .btn{
             background-color: #273036 !important;
             border: #273036;
         }
-
 
         .form-search {
             box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
@@ -45,12 +38,12 @@
             color: #2B3743;
         }
 
-        .agregar-contacto i{
+        .agregar-trailer i{
             color: #000000;
             opacity: 0.5;
         }
 
-        .agregar-contacto{
+        .agregar-trailer{
             box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
             padding: 1rem;
             background-color: #ffffff;
@@ -75,28 +68,6 @@
             color: green !important;
         }
 
-        .card-img-overlay{
-            display: none !important;
-            position: absolute;
-        }
-
-        .content-img:hover .card-img-overlay{
-            display: block !important;
-        }
-
-        .linkTrailer{
-            text-decoration: none !important;
-            color: #fff !important;
-
-        }
-
-        .linkTrailer:hover .img-trailer{
-            opacity: 0.3 !important;
-        }
-        .img-trailer{
-            max-height: 250px !important;
-        }
-
         .table{
             box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
             background-color: #ffffff;
@@ -115,7 +86,7 @@
 
 @section('nav')
     <nav class="mb-1 navbar navbar-expand-lg navbar-dark info-color">
-        <a class="navbar-brand" href="#">Admin Trailers</a>
+        <a class="navbar-brand" href="{{ route('admin') }}">Admin Trailers</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"
                 aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -128,7 +99,7 @@
                         <i class="fas fa-user mr-2"></i>Admin</a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-info ml-2"
                          aria-labelledby="navbarDropdownMenuLink-4">
-                        <a class="dropdown-item" href="#">Mi cuenta</a>
+                        <a class="dropdown-item" href="{{ route('cuenta') }}">Mi cuenta</a>
                         <a class="dropdown-item" href="#">Cerrar sesión</a>
                     </div>
                 </li>
@@ -146,7 +117,7 @@
                 </form>
             </div>
             <div class="col-lg-3 mt-3 mb-3">
-                <div class="agregar-contacto">
+                <div class="agregar-trailer">
                     <a href="#" class="btn-agregar" data-toggle="modal" data-target="#abrir-modal">
                         <i class="fas fa-plus-circle"></i>
                         Agregar Nuevo Trailer
@@ -167,27 +138,32 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Coco</td>
-                        <td style="max-width: 80px;"><img src="img/1.jpg" class="img-fluid" alt="..."></td>
-                        <td>2020</td>
-                        <td style="max-width: 50px;">Miguel es un joven que sueña con ser músico, algo a lo que su
-                            familia
-                            se opone totalmente.</td>
-                        <td>
-                            <a href="#" class="btn-editar" id="editar" data-toggle="modal" data-target="#abrir-modal-editar">
-                                <i class="far fa-edit"></i>
-                                Editar
-                            </a>
-                        </td>
-                        <td>
-                            <a href="#" class="btn-eliminar" id="eliminar">
-                                <i class="fas fa-trash-alt"></i>
-                                Eliminar
-                            </a>
-                        </td>
-                    </tr>
+                    @forelse($listTrailer as $item)
+                        <tr accesskey="{{$item->id}}">
+                            <th scope="row">{{$item->id}}</th>
+                            <td>{{$item->title}}</td>
+                            <td style="max-width: 80px;"><img src="{{$item->img}}" class="img-fluid" alt="..."></td>
+                            <td>2020</td>
+                            <td style="max-width: 50px;">{{$item->sinopsis}}</td>
+                            <td>
+                                <a href="#" class="btn-editar" id="editar" data-toggle="modal" data-target="#abrir-modal-editar">
+                                    <i class="far fa-edit"></i>
+                                    Editar
+                                </a>
+                            </td>
+                            <td>
+                                <a href="#" class="btn-eliminar" id="eliminar">
+                                    <i class="fas fa-trash-alt"></i>
+                                    Eliminar
+                                </a>
+                            </td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <th colspan="6" class="text-center">No hay trailers disponible</th>
+                        </tr>
+                    @endforelse
+
                     </tbody>
                 </table>
             </div>

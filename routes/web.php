@@ -6,9 +6,11 @@ Route::view('/','home')->name('home');
 Route::view('/login','login')->name('login');
 Route::view('/register','register')->name('register');
 Route::view('/admin', 'admin')->name('admin');
+Route::view('cuenta' , 'adminCuenta')->name('cuenta');
+
+Route::get('/admin', [\App\Http\Controllers\adminController::class, 'index'])->name('admin');
 
 Route::get('/',[\App\Http\Controllers\TrailerController::class, 'index'])->name('/');
-
 Route::get('/{name}',[\App\Http\Controllers\TrailerController::class, 'show'])->name('/name');
 
 Route::post('/register', [\App\Http\Controllers\registerController::class, 'store']);

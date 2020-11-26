@@ -50,7 +50,7 @@
             opacity: 0.3 !important;
         }
         .img-trailer{
-            max-height: 250px !important;
+            max-height: 300px !important;
         }
 
     </style>
@@ -66,14 +66,14 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
             <ul class="navbar-nav ml-auto">
                 <li class="{{ setActive('register') }}">
-                    <a class="nav-link" href="/register">
-                        Sign Up
+                    <a class="nav-link" href="{{ route('register') }}">
+                        <i class="fas fa-user-plus"></i>  Sign Up
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
                 <li class="{{ setActive('login') }}">
-                    <a class="nav-link" href="/login">
-                        Login</a>
+                    <a class="nav-link" href="{{ route('login') }}">
+                        <i class="fas fa-sign-in-alt ml-2"></i> Login</a>
                 </li>
             </ul>
         </div>
@@ -84,7 +84,7 @@
         <h1 class="text-center mt-3">Lista de Trailer</h1>
         <div class="row justify-content-between mt-4">
             @forelse($listTrailer as $item)
-            <div class="col-lg-5 mt-3 mb-3 content-trailer">
+            <div class="col-lg-6 mt-3 mb-3 content-trailer">
                 <div class="card bg-dark text-white content-img">
                     <a href="{{ route('/name', $item) }}" class="linkTrailer" target="_blank">
                         <img src="{{$item->img}}" class="card-img img-trailer" alt="...">
