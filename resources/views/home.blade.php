@@ -5,7 +5,8 @@
 @section('style')
     <style>
         body{
-            background-color: #F3F4F5 !important;
+            background-color: #273036 !important;
+            color: #cbd5e0;
         }
 
         .navbar{

@@ -43,22 +43,23 @@
 @section('content')
     <section class="container">
         <div class="row mt-5 justify-content-center align-items-center vh-60">
-            <div class="col-lg-10">
+            <div class="col-lg-12">
                 <div class="card-deck">
                     <div class="row no-gutters">
                         <div class="col-lg-6">
-                            <iframe width="400" height="315" src="https://www.youtube.com/embed/{{$trailers->url}}"
+                            <iframe width="590" height="450" src="https://www.youtube.com/embed/{{$trailers->url}}"
                                     frameborder="0"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                     allowfullscreen></iframe>
                         </div>
-                        <div class="col-lg-6">
+                        <div class="col-lg-6" style="background-color: #5000ca; max-height: 450px !important;">
                             <div class="card-body">
                                 <h5 class="card-title">{{$trailers->title}}</h5>
                                 <p class="card-text">{{$trailers->sinopsis}}</p>
                                 <p class="card-text">Año: {{$trailers->year}}</p>
-                                <p class="card-text">Actores: </p>
-                                <p class="card-text">Categoria: Comedia</p>
+                                <p class="card-text">Duración: {{$trailers->duracion}} </p>
+                                <p class="card-text">Género: {{$trailers->genero}}</p>
+                                <p class="card-text">Reparto: {{$trailers->Reparto}}</p>
                             </div>
                         </div>
                     </div>

@@ -15,8 +15,11 @@ class CreateTrailersTable extends Migration
     {
         Schema::create('trailers', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('title')->unique();
+            $table->string('title');
             $table->string('year');
+            $table->string('genero');
+            $table->string('duracion');
+            $table->longText('Reparto');
             $table->longText('sinopsis');
             $table->longText('url');
             $table->longText('img');

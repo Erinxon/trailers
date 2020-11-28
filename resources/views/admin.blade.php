@@ -13,11 +13,6 @@
             color: #fff !important;
         }
 
-        .btn{
-            background-color: #273036 !important;
-            border: #273036;
-        }
-
         .form-search {
             box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
             padding: 1rem;
@@ -96,11 +91,21 @@
                 <li class="nav-item dropdown active">
                     <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-user mr-2"></i>Admin</a>
+                        <i class="fas fa-user mr-2"></i>
+                        @auth()
+                            {{ auth()->user()->name}}
+                        @endauth
+                        </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-info ml-2"
                          aria-labelledby="navbarDropdownMenuLink-4">
-                        <a class="dropdown-item" href="{{ route('cuenta') }}">Mi cuenta</a>
-                        <a class="dropdown-item" href="#">Cerrar sesión</a>
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                            {{ __('Cerrar sesión') }}
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
                     </div>
                 </li>
             </ul>
@@ -111,14 +116,15 @@
     <section class="container">
         <div class="row justify-content-between mt-4">
             <div class="col-lg-4 mt-3 mb-3">
-                <form class="form-search" id="formulario">
+                <form class="form-search" id="formulario" method="get" action="{{ route('admin') }}">
+                    @csrf
                     <i class="fas fa-search"></i>
-                    <input type="text" placeholder="Buscar Trailer" id="inputTexto">
+                    <input type="text" name="buscar-trailer" placeholder="Buscar Trailer" id="inputTexto">
                 </form>
             </div>
             <div class="col-lg-3 mt-3 mb-3">
                 <div class="agregar-trailer">
-                    <a href="#" class="btn-agregar" data-toggle="modal" data-target="#abrir-modal">
+                    <a href="{{ route('admin.agregar') }}" class="btn-agregar">
                         <i class="fas fa-plus-circle"></i>
                         Agregar Nuevo Trailer
                     </a>
@@ -132,6 +138,8 @@
                         <th scope="col">Titulo</th>
                         <th scope="col">Imagen</th>
                         <th scope="col">Año</th>
+                        <th scope="col">Duración</th>
+                        <th scope="col">Género</th>
                         <th scope="col">Sinopsis</th>
                         <th scope="col">Editar</th>
                         <th scope="col">Eliminar</th>
@@ -143,116 +151,31 @@
                             <th scope="row">{{$item->id}}</th>
                             <td>{{$item->title}}</td>
                             <td style="max-width: 80px;"><img src="{{$item->img}}" class="img-fluid" alt="..."></td>
-                            <td>2020</td>
+                            <td>{{$item->year}}</td>
+                            <td>{{$item->duracion}}</td>
+                            <td>{{$item->genero}}</td>
                             <td style="max-width: 50px;">{{$item->sinopsis}}</td>
                             <td>
-                                <a href="#" class="btn-editar" id="editar" data-toggle="modal" data-target="#abrir-modal-editar">
-                                    <i class="far fa-edit"></i>
-                                    Editar
-                                </a>
+                                <button class="btn btn-link btn-editar">
+                                    <a href="{{ route('admin.editar', $item) }}" class="btn-editar" id="editar" >
+                                        <i class="far fa-edit"></i>Editar
+                                    </a>
+                                </button>
                             </td>
                             <td>
-                                <a href="#" class="btn-eliminar" id="eliminar">
-                                    <i class="fas fa-trash-alt"></i>
-                                    Eliminar
-                                </a>
+                                <form method="post" action="{{ route('admin.delete', $item) }}">
+                                    @csrf @method('DELETE')
+                                    <button class="btn btn-link btn-eliminar"><i class="fas fa-trash-alt"></i>Eliminar</button>
+                                </form>
                             </td>
                         </tr>
                     @empty
                         <tr>
-                            <th colspan="6" class="text-center">No hay trailers disponible</th>
+                            <th colspan="9" class="text-center">No hay trailers disponible</th>
                         </tr>
                     @endforelse
-
                     </tbody>
                 </table>
-            </div>
-
-            <div class="col-lg-12">
-                <div class="modal fade" id="abrir-modal" tabindex="-1" role="dialog"
-                     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLongTitle">Agregar Nuevo Trailer</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <form>
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <input type="text" name="titulo" class="form-control" placeholder="Titulo">
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <input type="text" name="year" class="form-control" placeholder="Año del trailer">
-                                        </div>
-                                        <div class="col-lg-12 mt-3">
-                                            <textarea type="text" name="Sinopsis" class="form-control" placeholder="Sinopsis"></textarea>
-                                        </div>
-                                        <div class="col-lg-12 mt-3">
-                                            <input type="text" name="url" class="form-control" placeholder="Url">
-                                        </div>
-                                        <div class="col-lg-12 mt-3">
-                                            <label>Subir mineatura</label>
-                                            <input type="file" class="form-control-file" name="Imagen" accept="image/*">
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                <button type="button" class="btn btn-primary" id="guardar-trailer">Guardar
-                                    Trailer</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="col-lg-12">
-                <div class="modal fade" id="abrir-modal-editar" tabindex="-1" role="dialog"
-                     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLongTitle">Editar Trailer</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <form>
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <input type="text" name="titulo" class="form-control" placeholder="Titulo">
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <input type="text" name="year" class="form-control" placeholder="Año del trailer">
-                                        </div>
-                                        <div class="col-lg-12 mt-3">
-                                            <textarea type="text" name="Sinopsis" class="form-control" placeholder="Sinopsis"></textarea>
-                                        </div>
-                                        <div class="col-lg-12 mt-3">
-                                            <input type="text" name="url" class="form-control" placeholder="Url">
-                                        </div>
-                                        <div class="col-lg-12 mt-3">
-                                            <label>Subir mineatura</label>
-                                            <input type="file" class="form-control-file" name="Imagen" accept="image/*">
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                <button type="button" class="btn btn-primary" id="editar-trailer">Editar
-                                    Trailer</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
 

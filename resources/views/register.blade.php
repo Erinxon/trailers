@@ -56,12 +56,12 @@
         <div class="row m-5 justify-content-center align-items-center vh-50">
             <div class="col-lg-6 content-form">
                 <h4 class="text-center mt-2">Registrarse</h4>
-                <form class="m-4" method="post" action="{{ route('register') }}">
+                <form class="m-4" method="post" action="{{ route('register.store') }}">
                     @csrf
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label>Nombre</label>
-                            <input type="text" class="form-control" name="nombre" placeholder="Nombre" value="{{ old('name') }}">
+                            <input type="text" class="form-control" name="name" placeholder="Nombre" value="{{ old('name') }}">
                             <span class="text-danger">{{$errors->first('name')}}</span>
                         </div>
                         <div class="form-group col-md-6">

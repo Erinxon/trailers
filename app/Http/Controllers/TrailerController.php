@@ -16,7 +16,7 @@ class TrailerController extends Controller
      */
     public function index()
     {
-        $listTrailer = Trailer::orderBy('id', 'desc')->paginate();
+        $listTrailer = Trailer::orderBy('id', 'desc')->paginate(6);
 
         return view('home', compact('listTrailer'));
     }
@@ -28,7 +28,7 @@ class TrailerController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -63,7 +63,6 @@ class TrailerController extends Controller
      */
     public function edit($id)
     {
-
 
     }
 
