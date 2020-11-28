@@ -137,7 +137,7 @@
                 }
             }
             if(cont===2){
-                link = link.slice(link.indexOf(caracter) + 1, link.lastIndexOf('='));
+                link = link.slice(link.indexOf(caracter) + 1, link.lastIndexOf('&t='));
             }
             else{
                 link = link.slice(link.indexOf(caracter) + 1, link.length);

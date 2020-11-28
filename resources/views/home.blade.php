@@ -54,6 +54,15 @@
             max-height: 300px !important;
         }
 
+        .text-sm{
+            padding: 1em;
+            text-align: center;
+        }
+
+        .shadow-sm{
+            display: none;
+        }
+
     </style>
 @endsection
 

@@ -47,14 +47,14 @@
 @section('content')
 <div class="container">
     <div class="row m-5 justify-content-center">
-        <div class="col-md-6">
+        <div class="col-md-5">
             <div class="card">
                 <div class="card-header text-center">{{ __('Iniciar sesión') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
-                        <div class="form-group">
+                        <div class="form-group mt-2">
                             <label for="email">{{ __('Dirección de correo electrónico') }}</label>
                             <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
@@ -64,7 +64,7 @@
                                     </span>
                                 @enderror
                         </div>
-                        <div class="form-group">
+                        <div class="form-group  mt-2">
                             <label for="password">{{ __('Contraseña') }}</label>
                             <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
                                 @error('password')
@@ -74,7 +74,7 @@
                                 @enderror
                         </div>
 
-                        <div class="form-group mb-0">
+                        <div class="form-group  mt-3 mb-0">
                             <button type="submit" class="btn btn-primary btn-block" style="padding: 0.7em !important;">
                                 {{ __('Iniciar sesión') }}
                             </button>
