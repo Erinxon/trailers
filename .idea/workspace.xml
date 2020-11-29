@@ -12,8 +12,9 @@
   <component name="ChangeListManager">
     <list default="true" id="7adcfe4a-a0f0-4eaa-b676-038c8cf87caa" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/public/favicon.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/.gitignore" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -198,7 +199,7 @@
       <workItem from="1606480276224" duration="1023000" />
       <workItem from="1606515469553" duration="14716000" />
       <workItem from="1606568612673" duration="20915000" />
-      <workItem from="1606603091092" duration="3964000" />
+      <workItem from="1606603091092" duration="5281000" />
     </task>
     <servers />
   </component>
@@ -226,10 +227,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="390" y="12" key="#PHP/0.0.1366.738@0.0.1366.738" timestamp="1605916551302" />
-    <state x="425" y="171" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1606274614333">
+    <state x="425" y="171" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1606607282869">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="425" y="171" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.738@0.0.1366.738" timestamp="1606274614333" />
+    <state x="425" y="171" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.738@0.0.1366.738" timestamp="1606607282869" />
     <state x="413" y="124" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1606358741758">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
