@@ -12,12 +12,7 @@
   <component name="ChangeListManager">
     <list default="true" id="7adcfe4a-a0f0-4eaa-b676-038c8cf87caa" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TrailerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TrailerController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/adminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/adminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/trailersapp.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/database/trailersapp.sqlite" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -205,6 +200,7 @@
       <workItem from="1606603091092" duration="9357000" />
       <workItem from="1606658941205" duration="4705000" />
       <workItem from="1606664209228" duration="1049000" />
+      <workItem from="1606672294563" duration="536000" />
     </task>
     <servers />
   </component>
