@@ -79,12 +79,11 @@ class adminController extends Controller
 
             $filename = str_replace('/storage/imagenes/', '',$img);
 
-            try{
+            if(Storage::exists($filename)){
                 unlink(storage_path('app/public/imagenes/'.$filename));
-            }catch (ErrorException $ex){
+            }else{
                 Storage::url($pathFoto);
             }
-
 
 
         }
