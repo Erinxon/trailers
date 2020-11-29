@@ -91,13 +91,31 @@
 @endsection
 @section('content')
     <section class="container">
-        <h1 class="text-center mt-3">Lista de Trailer</h1>
+
+        <h1 class="text-center mt-3">Trailer</h1>
+
+        @if(isset($listTrailer))
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="input-group md-form form-sm form-2 pl-0">
+                        <form class="form-inline ml-auto" method="get" action="{{ route('/') }}" id="formulario">
+                            @csrf
+                            <div class="md-form my-0">
+                                <input class="form-control" name="buscar-trailer-home" id="busqueda" type="text" placeholder="Buscar Trailer" aria-label="Search" value="{{ old('buscar-trailer-home') }}">
+                            </div>
+                            <button class="btn btn-light btn-md my-0 ml-sm-2" id="xd">Buscar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        @endif
+
         <div class="row justify-content-between mt-4">
             @forelse($listTrailer as $item)
             <div class="col-lg-6 mt-3 mb-3 content-trailer">
                 <div class="card bg-dark text-white content-img">
                     <a href="{{ route('/name', $item) }}" class="linkTrailer" target="_blank">
-                        <img src="{{$item->img}}" class="card-img img-trailer" alt="...">
+                        <img src="{{$item->img}}" class="card-img img-trailer" alt="{{$item->title}}">
                         <div class="card-img-overlay">
                             <h5 class="card-title">{{$item->title}}</h5>
                             <p class="card-text">{{$item->sinopsis}}</p>
@@ -116,4 +134,5 @@
             {{ $listTrailer->links() }}
         </ul>
     </nav>
+    
 @endsection

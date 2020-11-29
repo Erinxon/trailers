@@ -12,13 +12,19 @@ class TrailerController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function index()
     {
-        $listTrailer = Trailer::orderBy('id', 'desc')->paginate(6);
+        $nameTrailerSearch = request('buscar-trailer-home');
+
+        $listTrailer = Trailer::orderBy('id', 'desc')->Title($nameTrailerSearch)
+            ->paginate(6);
+
 
         return view('home', compact('listTrailer'));
+
+
     }
 
     /**

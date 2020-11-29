@@ -78,7 +78,10 @@ class adminController extends Controller
             $pathFoto = $request->file('Imagen')->store('public/imagenes');
 
             $filename = str_replace('/storage/imagenes/', '',$img);
+
             unlink(storage_path('app/public/imagenes/'.$filename));
+
+
         }
 
         $trailer->update([
