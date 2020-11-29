@@ -10,6 +10,7 @@ use App\Http\Requests\EditTrailerRequest;
 use Faker\Provider\File;
 use http\Env\Request;
 use Illuminate\Support\Facades\Storage;
+use phpDocumentor\Reflection\Utils;
 
 class adminController extends Controller
 {
@@ -56,7 +57,21 @@ class adminController extends Controller
 
     public function delete(Trailer $trailer){
         $filename = str_replace('/storage/imagenes/', '',$trailer->img);
-        unlink(storage_path('app/public/imagenes/'.$filename));
+
+        $listaImages = Storage::files('/public/imagenes/');
+
+        $verificar = false;
+        foreach ($listaImages as $item){
+            if(str_replace('public/imagenes/','',$item) == $filename){
+                $verificar = true;
+            }else{
+                $verificar = false;
+            }
+        }
+
+        if($verificar){
+            unlink(storage_path('app/public/imagenes/'.$filename));
+        }
 
         $trailer->delete();
         return redirect()->route('admin');
@@ -74,17 +89,28 @@ class adminController extends Controller
 
         $pathFoto = '';
 
+        $listaImages = Storage::files('/public/imagenes/');
+
         if(!empty($request->file('Imagen'))){
             $pathFoto = $request->file('Imagen')->store('public/imagenes');
 
             $filename = str_replace('/storage/imagenes/', '',$img);
 
-            if(Storage::exists($filename)){
+            $verificar = false;
+
+            foreach ($listaImages as $item){
+                if(str_replace('public/imagenes/','',$item) == $filename){
+                    $verificar = true;
+                }else{
+                    $verificar = false;
+                }
+            }
+
+            if($verificar){
                 unlink(storage_path('app/public/imagenes/'.$filename));
             }else{
                 Storage::url($pathFoto);
             }
-
 
         }
 
@@ -100,6 +126,7 @@ class adminController extends Controller
         ]);
 
         return redirect()->route('admin');
+
 
     }
 }
