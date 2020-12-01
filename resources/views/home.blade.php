@@ -97,7 +97,7 @@
         @if(isset($listTrailer))
             <div class="row">
                 <div class="col-md-12">
-                    <div class="input-group md-form form-sm form-2 pl-0">
+                    <div class="input-group md-form form-sm form-2">
                         <form class="form-inline ml-auto" method="get" action="{{ route('/') }}" id="formulario">
                             @csrf
                             <div class="md-form my-0">
@@ -118,7 +118,7 @@
                         <img src="{{$item->img}}" class="card-img img-trailer" alt="{{$item->title}}">
                         <div class="card-img-overlay">
                             <h5 class="card-title">{{$item->title}}</h5>
-                            <p class="card-text">{{$item->sinopsis}}</p>
+                            <p class="card-text">{{ substr($item->sinopsis, 0, 120).'...'}}</p>
                             <p class="card-text">{{$item->year}}</p>
                         </div>
                     </a>
@@ -134,5 +134,5 @@
             {{ $listTrailer->links() }}
         </ul>
     </nav>
-    
+
 @endsection
