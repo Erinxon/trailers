@@ -73,7 +73,7 @@
 @section('title-nav', 'Trailers')
 
 @section('content')
-    <section class="container">
+    <section class="container mb-5">
         <h1 class="text-center mt-3">Trailer</h1>
         @if(isset($listTrailer))
             <div class="row">
@@ -110,13 +110,13 @@
         </div>
     </section>
 
-    <nav aria-label="Page navigation example" class="mt-3">
+    <nav aria-label="Page navigation mb-3 example" class="mt-3">
         <ul class="pagination justify-content-center">
             {{ $listTrailer->links() }}
         </ul>
     </nav>
 
-    <footer class="page-footer font-small blue">
+    <footer class="page-footer fixed-bottom font-small">
         <div class="footer-copyright text-center py-3">© 2020 Copyright:
             <a href="http://trailersapp.test/">trailersapp.test</a>
         </div>
