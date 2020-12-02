@@ -14,8 +14,15 @@
             color: #fff !important;
         }
 
+        .page-footer{
+            background-color: #5000ca !important;
+            color: #fff !important;
+        }
+
     </style>
 @endsection
+
+@section('title-nav', 'Trailers')
 
 @section('nav')
     <nav class="mb-1 navbar navbar-expand-lg navbar-dark info-color">
@@ -40,8 +47,9 @@
         </div>
     </nav>
 @endsection
+
 @section('content')
-    <section class="container">
+    <section class="container mb-5">
         <div class="row mt-5 justify-content-center align-items-center vh-60">
             <div class="col-lg-12">
                 <div class="card-deck">
@@ -67,5 +75,11 @@
             </div>
         </div>
     </section>
+
+    <footer class="page-footer fixed-bottom font-small">
+        <div class="footer-copyright text-center py-3">© 2020 Copyright:
+            <a href="http://trailersapp.test/">trailersapp.test</a>
+        </div>
+    </footer>
 
 @endsection
