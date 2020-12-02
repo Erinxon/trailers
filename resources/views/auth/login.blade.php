@@ -21,29 +21,8 @@
     </style>
 @endsection
 
-@section('nav')
-    <nav class="mb-1 navbar navbar-expand-lg navbar-dark info-color">
-        <a class="navbar-brand" href="/">Trailers</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"
-                aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
-            <ul class="navbar-nav ml-auto">
-                <li class="{{ setActive('register') }}">
-                    <a class="nav-link" href="{{ route('register') }}">
-                        <i class="fas fa-user-plus"></i>  Sign Up
-                        <span class="sr-only">(current)</span>
-                    </a>
-                </li>
-                <li class="{{ setActive('login') }}">
-                    <a class="nav-link" href="{{ route('login') }}">
-                        <i class="fas fa-sign-in-alt ml-2"></i> Login</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-@endsection
+@section('title-nav', 'Login')
+
 @section('content')
 <div class="container">
     <div class="row mt-5 justify-content-center">
@@ -56,7 +35,6 @@
                         <div class="form-group mt-2">
                             <label for="email">{{ __('Dirección de correo electrónico') }}</label>
                             <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Dirección de correo electrónico">
-
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -65,7 +43,7 @@
                         </div>
                         <div class="form-group  mt-2">
                             <label for="password">{{ __('Contraseña') }}</label>
-                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Contraseña">
+                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="password" placeholder="Contraseña">
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

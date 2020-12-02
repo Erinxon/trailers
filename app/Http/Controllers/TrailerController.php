@@ -21,9 +21,7 @@ class TrailerController extends Controller
         $listTrailer = Trailer::orderBy('id', 'desc')->Title($nameTrailerSearch)
             ->paginate(6);
 
-
         return view('home', compact('listTrailer'));
-
 
     }
 

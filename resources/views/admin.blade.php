@@ -117,7 +117,6 @@
         <div class="row justify-content-between mt-4">
             <div class="col-lg-4 mt-3 mb-3">
                 <form class="form-search" id="formulario" method="get" action="{{ route('admin') }}">
-                    @csrf
                     <i class="fas fa-search"></i>
                     <input type="text" name="buscar-trailer" placeholder="Buscar Trailer" id="inputTexto">
                 </form>

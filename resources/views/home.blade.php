@@ -62,46 +62,26 @@
         .shadow-sm{
             display: none;
         }
+        .page-footer{
+            background-color: #5000ca !important;
+            color: #fff !important;
+        }
 
     </style>
 @endsection
 
-@section('nav')
-    <nav class="mb-1 navbar navbar-expand-lg navbar-dark info-color">
-        <a class="navbar-brand" href="/">Trailers</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"
-                aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
-            <ul class="navbar-nav ml-auto">
-                <li class="{{ setActive('register') }}">
-                    <a class="nav-link" href="{{ route('register') }}">
-                        <i class="fas fa-user-plus"></i>  Sign Up
-                        <span class="sr-only">(current)</span>
-                    </a>
-                </li>
-                <li class="{{ setActive('login') }}">
-                    <a class="nav-link" href="{{ route('login') }}">
-                        <i class="fas fa-sign-in-alt ml-2"></i> Login</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-@endsection
+@section('title-nav', 'Trailers')
+
 @section('content')
     <section class="container">
-
         <h1 class="text-center mt-3">Trailer</h1>
-
         @if(isset($listTrailer))
             <div class="row">
                 <div class="col-md-12">
                     <div class="input-group md-form form-sm form-2">
                         <form class="form-inline ml-auto" method="get" action="{{ route('/') }}" id="formulario">
-                            @csrf
                             <div class="md-form my-0">
-                                <input class="form-control" name="buscar-trailer-home" id="busqueda" type="text" placeholder="Buscar Trailer" aria-label="Search" value="{{ old('buscar-trailer-home') }}">
+                                <input class="form-control" name="buscar-trailer-home" id="busqueda" type="text" placeholder="Buscar Trailer" aria-label="Search">
                             </div>
                             <button class="btn btn-light btn-md my-0 ml-sm-2" id="xd">Buscar</button>
                         </form>
@@ -129,10 +109,17 @@
             @endforelse
         </div>
     </section>
+
     <nav aria-label="Page navigation example" class="mt-3">
         <ul class="pagination justify-content-center">
             {{ $listTrailer->links() }}
         </ul>
     </nav>
+
+    <footer class="page-footer font-small blue">
+        <div class="footer-copyright text-center py-3">© 2020 Copyright:
+            <a href="http://trailersapp.test/">trailersapp.test</a>
+        </div>
+    </footer>
 
 @endsection

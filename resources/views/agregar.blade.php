@@ -147,7 +147,5 @@
             }
             codigoUlr.value = link
         })
-
-
     </script>
 @endsection

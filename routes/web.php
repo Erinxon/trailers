@@ -21,9 +21,3 @@ Route::get('/{name}',[\App\Http\Controllers\TrailerController::class, 'show'])->
 
 
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

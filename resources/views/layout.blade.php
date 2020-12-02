@@ -10,7 +10,33 @@
 </head>
 @yield('style')
 <body>
-@yield('nav')
+
+@if(Auth::user())
+    @yield('nav')
+@else
+    <nav class="mb-1 navbar navbar-expand-lg navbar-dark info-color">
+        <a class="navbar-brand" href="/">@yield('title-nav')</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"
+                aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
+            <ul class="navbar-nav ml-auto">
+                <li class="{{ setActive('register') }}">
+                    <a class="nav-link" href="{{ route('register') }}">
+                        <i class="fas fa-user-plus"></i>  Sign Up
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="{{ setActive('login') }}">
+                    <a class="nav-link" href="{{ route('login') }}">
+                        <i class="fas fa-sign-in-alt ml-2"></i> Login</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+@endif
+
 @yield('content')
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
