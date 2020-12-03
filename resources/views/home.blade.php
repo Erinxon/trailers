@@ -75,20 +75,19 @@
 @section('content')
     <section class="container mb-5">
         <h1 class="text-center mt-3">Trailer</h1>
-        @if(!$listTrailer->isEmpty())
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="input-group md-form form-sm form-2">
-                        <form class="form-inline ml-auto" method="get" action="{{ route('/') }}" id="formulario">
-                            <div class="md-form my-0">
-                                <input class="form-control" name="buscar-trailer-home" id="busqueda" type="text" placeholder="Buscar Trailer" aria-label="Search">
-                            </div>
-                            <button class="btn btn-light btn-md my-0 ml-sm-2" id="xd">Buscar</button>
-                        </form>
-                    </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="input-group md-form form-sm form-2">
+                    <form class="form-inline ml-auto" method="get" action="{{ route('/') }}" id="formulario">
+                        <div class="md-form my-0">
+                            <input class="form-control" name="buscar-trailer-home" id="busqueda" type="text" placeholder="Buscar Trailer" aria-label="Search">
+                        </div>
+                        <button class="btn btn-light btn-md my-0 ml-sm-2" id="xd">Buscar</button>
+                    </form>
                 </div>
             </div>
-        @endif
+        </div>
 
         <div class="row justify-content-between mt-4">
             @forelse($listTrailer as $item)

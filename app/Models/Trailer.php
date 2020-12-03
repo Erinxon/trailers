@@ -16,10 +16,4 @@ class Trailer extends Model
         }
     }
 
-    public function scopeID($query, $id){
-        if($id){
-            return $query->where('id',$id);
-        }
-    }
-
 }

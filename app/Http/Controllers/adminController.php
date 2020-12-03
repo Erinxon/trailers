@@ -23,12 +23,15 @@ class adminController extends Controller
     {
         $nameTrailerSearch = request('buscar-trailer');
 
+
         $listTrailer = Trailer::orderBy('id', 'desc')
                 ->Title($nameTrailerSearch)
-                ->id(auth()->user()->id)
                 ->get();
 
         return view('admin', compact('listTrailer'));
+
+
+        return auth()->user()->id;
     }
 
     public function store(CreateTrailerRequest $request){
@@ -45,12 +48,10 @@ class adminController extends Controller
             'Reparto'	=> request('reparto'),
             'sinopsis'	=> request('Sinopsis'),
             'url'	=> request('url'),
-            'img'	=> $urlImagen,
-            'id_Usuario' => auth()->user()->id
+            'img'	=> $urlImagen
         ]);
 
         return redirect()->route('admin');
-
     }
 
     public function show()
