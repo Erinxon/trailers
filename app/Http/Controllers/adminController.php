@@ -8,6 +8,7 @@ use App\Http\Requests\CreateTrailerRequest;
 use App\Http\Requests\EditTrailerRequest;
 
 use Faker\Provider\File;
+use http\Client\Curl\User;
 use http\Env\Request;
 use Illuminate\Support\Facades\Storage;
 use phpDocumentor\Reflection\Utils;
@@ -24,6 +25,7 @@ class adminController extends Controller
 
         $listTrailer = Trailer::orderBy('id', 'desc')
                 ->Title($nameTrailerSearch)
+                ->id(auth()->user()->id)
                 ->get();
 
         return view('admin', compact('listTrailer'));
@@ -44,6 +46,7 @@ class adminController extends Controller
             'sinopsis'	=> request('Sinopsis'),
             'url'	=> request('url'),
             'img'	=> $urlImagen,
+            'id_Usuario' => auth()->user()->id
         ]);
 
         return redirect()->route('admin');

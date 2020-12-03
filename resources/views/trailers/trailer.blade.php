@@ -18,7 +18,6 @@
             background-color: #5000ca !important;
             color: #fff !important;
         }
-
     </style>
 @endsection
 

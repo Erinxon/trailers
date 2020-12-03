@@ -75,7 +75,7 @@
 @section('content')
     <section class="container mb-5">
         <h1 class="text-center mt-3">Trailer</h1>
-        @if(isset($listTrailer))
+        @if(!$listTrailer->isEmpty())
             <div class="row">
                 <div class="col-md-12">
                     <div class="input-group md-form form-sm form-2">
@@ -121,5 +121,4 @@
             <a href="http://trailersapp.test/">trailersapp.test</a>
         </div>
     </footer>
-
 @endsection

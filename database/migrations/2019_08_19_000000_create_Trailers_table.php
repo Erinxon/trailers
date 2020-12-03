@@ -24,6 +24,8 @@ class CreateTrailersTable extends Migration
             $table->longText('url');
             $table->longText('img');
             $table->timestamps();
+            $table->unsignedInteger('id_Usuario');
+            $table->foreign('id_Usuario')->references('id')->on('users');
         });
     }
 
