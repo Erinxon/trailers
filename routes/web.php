@@ -19,5 +19,4 @@ Route::delete('/admin/id/{trailer}', [\App\Http\Controllers\adminController::cla
 Route::get('/',[\App\Http\Controllers\TrailerController::class, 'index'])->name('/');
 Route::get('/{name}',[\App\Http\Controllers\TrailerController::class, 'show'])->name('/name');
 
-
 Auth::routes();
