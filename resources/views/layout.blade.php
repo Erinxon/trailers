@@ -50,5 +50,4 @@
         crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/7de94cbd13.js" crossorigin="anonymous"></script>
 </body>
-
 </html>
