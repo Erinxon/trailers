@@ -27,7 +27,6 @@
     <list default="true" id="7adcfe4a-a0f0-4eaa-b676-038c8cf87caa" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/trailersapp.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/database/trailersapp.sqlite" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -236,6 +235,25 @@
       <workItem from="1607046301503" duration="310000" />
       <workItem from="1607046681630" duration="6116000" />
       <workItem from="1607054043688" duration="632000" />
+      <workItem from="1607192052899" duration="162000" />
+      <workItem from="1607192901172" duration="630000" />
+      <workItem from="1607194206027" duration="444000" />
+      <workItem from="1607194748071" duration="692000" />
+      <workItem from="1607209751484" duration="357000" />
+      <workItem from="1607213539206" duration="68000" />
+      <workItem from="1607263702838" duration="758000" />
+      <workItem from="1607268153223" duration="336000" />
+      <workItem from="1607291057662" duration="107000" />
+      <workItem from="1607291711737" duration="2406000" />
+      <workItem from="1607294852090" duration="17000" />
+      <workItem from="1607458687480" duration="667000" />
+      <workItem from="1607465356540" duration="203000" />
+      <workItem from="1607466321017" duration="209000" />
+      <workItem from="1607794831188" duration="1419000" />
+      <workItem from="1607810664731" duration="725000" />
+      <workItem from="1607887745372" duration="128000" />
+      <workItem from="1607888215672" duration="21000" />
+      <workItem from="1608395963710" duration="276000" />
     </task>
     <servers />
   </component>
@@ -271,6 +289,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="413" y="124" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.738@0.0.1366.738" timestamp="1606358741758" />
+    <state x="306" y="59" width="748" height="679" key="FileChooserDialogImpl" timestamp="1607294867166">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="306" y="59" width="748" height="679" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1607294867166" />
     <state x="453" y="92" key="NewPhpClassDialog" timestamp="1606159545892">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
